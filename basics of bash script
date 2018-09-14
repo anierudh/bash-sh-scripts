@@ -95,5 +95,42 @@ for (( ; ; )) infinite loop
 maxdepth and mindepth are to limit the level of search  root is level 1 ans 2 sub directories are level 2 and 3
 find . -maxdepth 2 -name  '*AndroidManifest.xml'
 
+to rename one set of files
+find . -maxdepth 2 -name '*AndroidManifest.xml' -exec rename 's/AndroidManifest/hello/g' {} \;
+s - flag to subtitute one string with another
+g - flag that all matches can be replaced
+parameter expansion 
+
+${...}
+
+to avoid overwriting
+find . -maxdepth 2 -name '*AndroidManifest.xml' cp -nrvp "$i" ./co
+
+to get only file name(basename)
+s=$(basename $path)
+for i in $(find . -maxdepth 2 -name '*AndroidManifest.xml');do echo ${i##*/}; done
+till last slash for particular path
+% means matching from the end
+# means matching from beginning
+
+If you want to use same output in next block use "$_"
+
+diff between echo and printf
+echo gives output in many lines with \n
+printf gives in single line
+
+to back up content
+cp -rv --backup=t source target
+
+to concatnate 
+${filename}_${extension}
+
+to extract and rename particular type of file
+first="AndroidManifest"
+last=".xml"
+num=0; for i in $(find . -maxdepth 2 -name '*AndroidManifest.xml'); do cp "$i" ./co/${first}${num}${last}; ((num++)); done
+
+
+
 
 
