@@ -1,0 +1,99 @@
+commands used in the command line can be given in script and saved as name.sh. to run ./name.sh
+
+# is used for commenting
+echo - used for printing 
+If you want particular thing to print use $ in front of it
+$PATH
+directories are seperated by :
+#!- shebang
+
+To refer or read a variable we use $ before it
+
+some special variables are
+$@ all arguments supplied in bash script
+$$ the pid of current script
+$RANDOM
+$USER username of user running the script
+$LINENO
+$SECONDS
+$HOSTNAME gives the hostname of machine
+$0  name of the bash script
+$1-$9 first 9 arguments of the bash script
+$#  how many arguments have passed in bash script
+
+How to set a variable?
+variable=value
+x=2
+echo $x
+
+contents within "" are considered as one item (variable substitution)
+export variable name - makes it available for child process
+To execute command line commands
+x=$(ls)
+echo $x
+
+
+If you ask user for input we use read
+read name
+echo $name
+ for read
+-p is for prompt
+-s is for silent
+read -p ' uname:' name
+
+
+    STDIN - /proc/<processID>/fd/0
+    STDOUT - /proc/<processID>/fd/1
+    STDERR - /proc/<processID>/fd/2
+
+for arithmetic expression we use let
+let a=5+4
+% returns the remainder
+
+expr is same as let but it does not save in variable
+expr 5 + 4
+
+$((expression))
+a=$(( 5 + 4 ))
+
+To get the length of the variable
+${#variable}
+a='hey'
+echo ${#a}
+
+if statement
+if []
+then
+	<commands>
+fi
+if [ 189 -gt 100 ]; then echo "bad"; fi
+
+while loop
+while [<some test>]
+do
+	<commands>
+done
+
+counter=1
+while [ $counter -le 10 ]
+do
+echo $counter
+((counter++))
+done
+echo All done
+
+for loops
+for variable in <list>
+do
+<commands>
+done
+list of items {1..5}
+{10..0..2} 10 to 0 in difference of 2
+for (( ; ; )) infinite loop
+
+
+maxdepth and mindepth are to limit the level of search  root is level 1 ans 2 sub directories are level 2 and 3
+find . -maxdepth 2 -name  '*AndroidManifest.xml'
+
+
+
