@@ -143,6 +143,10 @@ for i in $(find . -maxdepth 2 -name '*AndroidManifest.xml'); do DIR=$(dirname "$
 to change from dex to jar
 for i in $(find . -name "*.dex"); do sh d2j-dex2jar.sh "$i"; done by going to dex2jar directory
 
+to find the size of a folder
+du -h ./folder name
+du -h -max-depth=0 ./foldername
+
 
 
 
